@@ -1,0 +1,204 @@
+<<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+.limelight-regular {
+  font-family: "Limelight", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.philosopher-regular {
+  font-family: "Philosopher", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.philosopher-bold {
+  font-family: "Philosopher", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.philosopher-regular-italic {
+  font-family: "Philosopher", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.philosopher-bold-italic {
+  font-family: "Philosopher", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+        body {
+            font-family: 'Limelight', sans-serif; /* Установка шрифта для всего документа */
+        }
+
+        .grid-init {
+            max-width: 1200px; /* максимальная ширина контейнера */
+            margin: auto; /* центрирование контейнера на странице */
+            background-color: #17203D; /* фон */
+            padding: 10px; /* внутренние отступы */
+        }
+
+        .box-init {
+            font-size: larger; /* размер шрифта */
+            font-family: 'Philosopher', sans-serif;
+            color: #6552D0; /* цвет текста */
+            background-color: #2196f3; /* цвет фона */
+            padding: 10px; /* внутренние отступы */
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* Разметка по вертикали для текста и изображений */
+        }
+
+        .gr_header { grid-area: header; background:#17203D; }
+        .gr_footer { grid-area: footer; background:#17203D; }
+	.gr_header { grid-area: header; background:#17203D; }
+        .gr_gg { grid-area: gg; background:#17203D;}
+	.gr_end { grid-area: end; background:#17203D;}
+        .gr_main { grid-area: main; background:#17203D;}
+        .gr_section { grid-area: section; background:#17203D;}
+        .gr_center { grid-area: center; background:#17203D;}
+        .gr_left { grid-area: left;background:#17203D; }
+        .gr_right { grid-area: right; background:#17203D;}
+
+        .grid {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas:
+                "header header header header" 
+                "left left right right" 
+		"gg gg gg gg" 
+                "footer main section center"
+                "end end end end";  
+        }
+
+        /* Добавленные стили для изображения и заголовка в заголовке */
+        .header-image {
+            width: 100%; /* Занимает всю ширину ячейки */
+            height: auto; /* Автоматическая высота для сохранения пропорций */
+            display: block; /* Убирает отступы снизу, когда изображение является блочным элементом */
+        }
+
+        .header-title {
+            font-size: 2em; /* Размер заголовка */
+            margin: 10px 0; /* Отступы сверху и снизу */
+            text-align: left; /* Выравнивание по левому краю */
+            color: #6552D0; /* Цвет заголовка */
+            width: 100%; /* Занимает всю ширину родительского контейнера */
+        }
+
+        /* Стиль для меню */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start; /* Выравнивание меню по левому краю */
+            margin: 10px 0; /* Отступы сверху и снизу для меню */
+        }
+
+        nav ul li {
+            margin-right: 20px; /* Отступ между пунктами меню */
+            color: #6552D0; /* Цвет текста меню */
+            font-size: 1.2em; /* Размер шрифта меню */
+        }
+
+        nav ul li:hover {
+            text-decoration: underline; /* Подчёркивание при наведении курсора */
+        }
+.gr_footer {
+            background: #17203D; /* Цвет фона футера */
+            color: #fff; /* Цвет текста футера */
+            text-align: center; /* Выравнивание текста футера по центру */
+            padding: 20px; /* Добавление внутреннего отступа */
+        }
+.gr_main {
+            background: #17203D; /* Цвет фона футера */
+            color: #fff; /* Цвет текста футера */
+            text-align: center; /* Выравнивание текста футера по центру */
+            padding: 20px; /* Добавление внутреннего отступа */
+        }
+.gr_center {
+            background: #17203D; /* Цвет фона футера */
+            color: #fff; /* Цвет текста футера */
+            text-align: center; /* Выравнивание текста футера по центру */
+            padding: 20px; /* Добавление внутреннего отступа */
+        }
+.gr_section {
+            background: #17203D; /* Цвет фона футера */
+            color: #fff; /* Цвет текста футера */
+            text-align: center; /* Выравнивание текста футера по центру */
+            padding: 20px; /* Добавление внутреннего отступа */
+        }
+    </style>
+</head>
+<body>
+
+<div class="grid-init grid">
+
+    <header class="box-init box gr_header" id="home">
+        <h1 class="header-title">HERE WE DANCE</h1> <!-- Заголовок изменён -->
+        <nav>
+            <ul>
+                <li><a href="#home" style="color: #6552D0;">HOME</a></li>
+                <li><a href="#story" style="color: #6552D0;">STORY</a></li>
+                <li><a href="#directions" style="color: #6552D0;">DIRECTOINS</a></li>
+                <li><a href="#subscribe" style="color: #6552D0;">SUBSCRIBE</a></li>
+            </ul>
+        </nav>
+        <img src="C:\Users\Я\Documents\mater\dance.png" alt="Изображение в заголовке" class="header-image" />
+    </header>
+    
+    <div class="box-init box gr_left" >
+        <img src="C:\Users\Я\Documents\mater\ddance.png" alt="Пример изображения" style="width: 100%; height: auto;" />
+    </div>
+    
+    <div class="box-init box gr_right"id="story">
+	<h1 class="header-title">STORY</h1>
+        <p>Танцевальная студия в нашем городе предлагает обучение различным стилям танцев для детей и взрослых. Здесь вы сможете раскрыть свой творческий потенциал, научиться двигаться красиво и уверенно, а также выступать на концертах. Опытные преподаватели помогут вам полюбить движение и достичь успеха в танце..</p>
+    </div>
+
+    <div class="box-init box gr_gg" id="directions">
+            <h1>DIRECTOINS</h1>
+    </div>
+
+    <footer class="box-init box gr_footer">
+            <img src="C:\Users\Я\Documents\mater\1.png" alt="Пример изображения" style="width: 100%; height: auto;" />
+            <p>Бальные танцы</p>
+    </footer>
+
+    <center class="box-init box gr_center">
+            <img src="C:\Users\Я\Documents\mater\2.png" alt="Пример изображения" style="width: 100%; height: auto;" />
+            <p>Хип-хоп</p>
+        </center>
+
+        <section class="box-init box gr_section">
+            <img src="C:\Users\Я\Documents\mater\3.png" alt="Пример изображения" style="width: 100%; height: auto;" />
+            <p>Фитнес</p>
+        </section>
+
+        <main class="box-init box gr_main">
+            <img src="C:\Users\Я\Documents\mater\4.png" alt="Пример изображения" style="width: 100%; height: auto;" />
+            <p>Todes</p>
+        </main>
+    <div class="box-init box gr_end"  id="subscribe">
+	<h1>SUBSCRIBE</h1>
+        <p>8-999-888-77-66</p>
+	<p>inst:@dance</p>
+    </div>
+</div>
+
+</body>
+</html>
